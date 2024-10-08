@@ -2,6 +2,7 @@ package com.savior.conversor.service;
 
 import com.savior.conversor.api.ApiClient;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CurrencyConverterService {
