@@ -31,7 +31,8 @@ public class ApiClient {
 
             return gson.fromJson(response.body(), CurrencyResponse.class);
         } catch (IOException | InterruptedException e) {
-            throw new RuntimeException(e);
+            System.out.println("Error fetching data from API: " + e.getMessage());
+            return null;
         }
     }
 }
