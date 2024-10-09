@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ApiClient apiClient;
         do {
             var menu = """
                     1. Convert Dollars to Euros
@@ -23,30 +22,12 @@ public class Main {
             System.out.print("Choose an option: ");
             int option = scanner.nextInt();
             switch (option) {
-                case 1 -> {
-                    apiClient = new ApiClient("EUR");
-                    CurrencyConverterService.convert(apiClient, "USD", "EUR");
-                }
-                case 2 -> {
-                    apiClient = new ApiClient("USD");
-                    CurrencyConverterService.convert(apiClient, "EUR", "USD");
-                }
-                case 3 -> {
-                    apiClient = new ApiClient("JPY");
-                    CurrencyConverterService.convert(apiClient, "USD", "JPY");
-                }
-                case 4 -> {
-                    apiClient = new ApiClient("USD");
-                    CurrencyConverterService.convert(apiClient, "JPY", "USD");
-                }
-                case 5 -> {
-                    apiClient = new ApiClient("PEN");
-                    CurrencyConverterService.convert(apiClient, "USD", "PEN");
-                }
-                case 6 -> {
-                    apiClient = new ApiClient("USD");
-                    CurrencyConverterService.convert(apiClient, "USD", "PEN");
-                }
+                case 1 -> CurrencyConverterService.convert(new ApiClient("EUR"), "USD", "EUR");
+                case 2 -> CurrencyConverterService.convert(new ApiClient("USD"), "EUR", "USD");
+                case 3 -> CurrencyConverterService.convert(new ApiClient("JPY"), "USD", "JPY");
+                case 4 -> CurrencyConverterService.convert(new ApiClient("USD"), "JPY", "USD");
+                case 5 -> CurrencyConverterService.convert(new ApiClient("PEN"), "USD", "PEN");
+                case 6 -> CurrencyConverterService.convert(new ApiClient("USD"), "USD", "PEN");
                 case 7 -> {
                     System.out.println("Exiting...");
                     System.exit(0);
